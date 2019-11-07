@@ -16,6 +16,14 @@
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/loglevel": "^1.6.3",
+    "@types/morgan": "^1.7.37",
+    "@types/node": "^12.7.5",
+    "@types/source-map": "^0.5.7",
+    "@types/webpack": "^4.39.1",
+    "@types/webpack-dev-middleware": "^2.0.3",
+    "@types/webpack-hot-middleware": "^2.16.5",
     "prettier": "1.18.2",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",

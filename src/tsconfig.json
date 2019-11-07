@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@scsa/*": ["node_modules/@scsa/*"]
+      "@scsa/*": [
+        "node_modules/@scsa/*"
+      ]
     },
     "outDir": "./dist",
     "noImplicitAny": true,
@@ -10,7 +12,9 @@
     "allowJs": false,
     "esModuleInterop": true,
     "sourceMap": true,
-    "typeRoots": ["src/types"]
+    "typeRoots": [
+      "src/types"
+    ]
   },
   "exclude": [
     "node_modules"

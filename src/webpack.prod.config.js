@@ -10,24 +10,6 @@ module.exports = {
     entry: {
         main: "./src/index"
     },
-    resolve: {
-        extensions: [".ts", ".js"]
-    },
-    optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true // set to true if you want JS source maps
-            }),
-            new OptimizeCSSAssetsPlugin({})
-        ]
-    },
-    output: {
-        filename: "[name].js",
-        path: path.join(process.cwd(), "dist"),
-        publicPath: "/"
-    },
     module: {
         rules: [
             {
@@ -53,6 +35,21 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true // set to true if you want JS source maps
+            }),
+            new OptimizeCSSAssetsPlugin({})
+        ]
+    },
+    output: {
+        filename: "[name].js",
+        path: path.join(process.cwd(), "dist"),
+        publicPath: "/"
+    },
     plugins: [
         new HtmlWebPackPlugin({
             filename: "./index.html",
@@ -63,5 +60,8 @@ module.exports = {
             filename: "[name].css"
         })
     ],
+    resolve: {
+        extensions: [".ts", ".js"]
+    },
     target: "web"
 };

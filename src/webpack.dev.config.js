@@ -10,15 +10,6 @@ module.exports = {
     entry: {
         main: [hotMiddlewareScript, "./src/index"]
     },
-    output: {
-        filename: "[name].js",
-        path: path.join(process.cwd(), "dist"),
-        publicPath: "/"
-    },
-    resolve: {
-        extensions: [".ts", ".js"]
-    },
-
     mode: "development",
     module: {
         rules: [
@@ -31,7 +22,6 @@ module.exports = {
                 use: [
                     {
                         loader: "html-loader"
-                        //options: { minimize: true }
                     }
                 ]
             },
@@ -45,6 +35,11 @@ module.exports = {
             }
         ]
     },
+    output: {
+        filename: "[name].js",
+        path: path.join(process.cwd(), "dist"),
+        publicPath: "/"
+    },
     plugins: [
         new HtmlWebPackPlugin({
             excludeChunks: ["server"],
@@ -54,5 +49,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     ],
+    resolve: {
+        extensions: [".ts", ".js"]
+    },
     target: "web"
 };
