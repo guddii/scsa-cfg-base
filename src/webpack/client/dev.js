@@ -19,15 +19,16 @@ const hotMiddlewareScript = script => {
  * Webpack configuration for the development
  * of client bundles
  *
- * @param env Node env parameter
- * @param argv Commandline parameter
+ * @extends ./prodConfig
+ * @param {object} [env] Node env parameter
+ * @param {object} [argv] Commandline parameter
  * @returns webpack.Configuration
  */
 module.exports = (env, argv) => {
     const config = {
         devtool: "inline-source-map",
         entry: {
-            client: [hotMiddlewareScript, "./src/client/index"]
+            client: [hotMiddlewareScript(), "./src/client/index"]
         },
         mode: "development",
         module: {

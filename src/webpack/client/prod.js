@@ -7,8 +7,8 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
  * Webpack configuration for production builds
  * of client bundles
  *
- * @param env Node env parameter
- * @param argv Commandline parameter
+ * @param {object} [env] Node env parameter
+ * @param {object} [argv] Commandline parameter
  * @returns webpack.Configuration
  */
 module.exports = (env, argv) => {

@@ -5,8 +5,8 @@ const nodeExternals = require("webpack-node-externals");
  * Webpack configuration for production builds
  * of server bundles
  *
- * @param env Node env parameter
- * @param argv Commandline parameter
+ * @param {object} [env] Node env parameter
+ * @param {object} [argv] Commandline parameter
  * @returns webpack.Configuration
  */
 module.exports = (env, argv) => {
