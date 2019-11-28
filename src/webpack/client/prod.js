@@ -20,6 +20,7 @@ module.exports = (env, argv) => {
             rules: [
                 {
                     test: /\.ts?$/,
+                    options: { allowTsInNodeModules: true },
                     use: "ts-loader"
                 },
                 {
