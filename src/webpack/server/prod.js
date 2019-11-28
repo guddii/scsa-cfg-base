@@ -19,6 +19,7 @@ module.exports = (env, argv) => {
                 whitelist: [
                     "@scsa/base",
                     "@scsa/styling",
+                    "@scsa/styling/src/prod",
                     "@scsa/styling/src/dev",
                     "@scsa/messaging"
                 ]
