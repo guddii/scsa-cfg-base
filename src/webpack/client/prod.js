@@ -21,7 +21,7 @@ module.exports = (env, argv) => {
                 {
                     test: /\.ts?$/,
                     options: { allowTsInNodeModules: true },
-                    use: "ts-loader"
+                    loader: "ts-loader"
                 },
                 {
                     test: /\.css$/,

@@ -9,7 +9,7 @@
         "node_modules/@scsa/*"
       ]
     },
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "allowJs": true,
     "esModuleInterop": true,
     "sourceMap": true,
