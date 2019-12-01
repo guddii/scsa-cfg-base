@@ -35,11 +35,12 @@ module.exports = (env, argv) => {
             rules: [
                 {
                     test: /\.ts?$/,
-                    use: "ts-loader"
+                    options: { allowTsInNodeModules: true },
+                    loader: "ts-loader"
                 },
                 {
                     test: /\.css$/,
-                    use: ["style-loader", "css-loader"]
+                    use: [MiniCssExtractPlugin.loader, "css-loader"]
                 }
             ]
         },
