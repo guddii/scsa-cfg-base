@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const prodConfig = require("./prod");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 /**
  * Hot middleware script
