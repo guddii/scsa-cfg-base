@@ -45,7 +45,13 @@ module.exports = (env, argv) => {
                 }
             ]
         },
-        plugins: [new webpack.HotModuleReplacementPlugin()]
+        plugins: [
+            new MiniCssExtractPlugin({
+                chunkFilename: "[id].css",
+                filename: "[name].css"
+            }),
+            new webpack.HotModuleReplacementPlugin()
+        ]
     };
     return { ...prodConfig(), ...config };
 };
