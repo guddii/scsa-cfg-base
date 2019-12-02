@@ -41,15 +41,11 @@ module.exports = (env, argv) => {
                 },
                 {
                     test: /\.css$/,
-                    use: [MiniCssExtractPlugin.loader, "css-loader"]
+                    use: ["style-loader", "css-loader"]
                 }
             ]
         },
         plugins: [
-            new MiniCssExtractPlugin({
-                chunkFilename: "[id].css",
-                filename: "[name].css"
-            }),
             new webpack.HotModuleReplacementPlugin()
         ]
     };
