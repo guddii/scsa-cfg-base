@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
         externals: [
             nodeExternals({
                 whitelist: [
-                    "@scsa/base",
+                    "@scsa/build",
                     "@scsa/global",
                     "@scsa/styling",
                     "@scsa/styling/src/prod",

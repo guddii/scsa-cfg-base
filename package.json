@@ -1,14 +1,14 @@
 {
-  "name": "@scsa/base",
+  "name": "@scsa/build",
   "private": false,
   "version": "1.0.0",
-  "description": "Basic Configuration",
+  "description": "Build Configuration",
   "main": "./index.ts",
   "license": "MIT",
   "author": "Florian Gudat <florian.gudat@guices.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com:guddii/scsa-cfg-base.git"
+    "url": "https://github.com:guddii/scsa-cfg-build.git"
   },
   "dependencies": {
     "@prettier/plugin-pug": "^1.0.11",

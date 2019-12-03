@@ -1,2 +1,2 @@
-# scsa-cfg-base
-The basic configuration for generating the SCSA artifacts.
+# scsa-cfg-build
+The build configuration for generating SCSA artifacts.
