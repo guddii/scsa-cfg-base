@@ -16,7 +16,10 @@ module.exports = (env, argv) => {
             server: ["./src/server/entry/dev"]
         },
         mode: "development",
-        plugins: [new webpack.HotModuleReplacementPlugin()]
+        plugins: [
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NoEmitOnErrorsPlugin()
+        ]
     };
 
     return { ...prodConfig(), ...config };

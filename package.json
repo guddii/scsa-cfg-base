@@ -3,7 +3,7 @@
   "private": false,
   "version": "1.0.0",
   "description": "Basic Configuration",
-  "main": "./src/index.ts",
+  "main": "./index.ts",
   "license": "MIT",
   "author": "Florian Gudat <florian.gudat@guices.com>",
   "repository": {

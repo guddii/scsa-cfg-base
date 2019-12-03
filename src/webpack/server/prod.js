@@ -11,6 +11,7 @@ const nodeExternals = require("webpack-node-externals");
  */
 module.exports = (env, argv) => {
     return {
+        context: process.cwd(),
         entry: {
             server: "./src/server/entry/prod"
         },
@@ -18,6 +19,7 @@ module.exports = (env, argv) => {
             nodeExternals({
                 whitelist: [
                     "@scsa/base",
+                    "@scsa/global",
                     "@scsa/styling",
                     "@scsa/styling/src/prod",
                     "@scsa/styling/src/dev",
