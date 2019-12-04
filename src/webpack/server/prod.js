@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 
@@ -37,19 +38,16 @@ module.exports = (env, argv) => {
                 }
             ]
         },
-        node: {
-            Buffer: false,
-            __dirname: false,
-            __filename: false,
-            console: false,
-            global: false,
-            process: false
-        },
         output: {
             filename: "[name].js",
             path: path.join(process.cwd(), "dist", "server"),
             publicPath: "/"
         },
+        plugins: [
+            new webpack.EnvironmentPlugin({
+                SCSA_ENDPOINT_SETTINGS: 'development'
+            })
+        ],
         resolve: {
             extensions: [".ts", ".js"]
         },

@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");
@@ -16,6 +17,7 @@ module.exports = (env, argv) => {
         entry: {
             client: "./src/client/index"
         },
+        mode: "production",
         module: {
             rules: [
                 {
@@ -45,6 +47,9 @@ module.exports = (env, argv) => {
             publicPath: "/"
         },
         plugins: [
+            new webpack.EnvironmentPlugin({
+                SCSA_ENDPOINT_SETTINGS: 'development'
+            }),
             new MiniCssExtractPlugin({
                 chunkFilename: "[id].css",
                 filename: "[name].css"

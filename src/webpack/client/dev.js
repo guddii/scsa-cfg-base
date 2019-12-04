@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const prodConfig = require("./prod");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 /**
  * Hot middleware script
@@ -46,6 +45,9 @@ module.exports = (env, argv) => {
             ]
         },
         plugins: [
+            new webpack.EnvironmentPlugin({
+                SCSA_ENDPOINT_SETTINGS: 'development'
+            }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.NoEmitOnErrorsPlugin()
         ]
