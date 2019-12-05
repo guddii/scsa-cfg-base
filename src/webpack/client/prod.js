@@ -2,7 +2,6 @@ const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 /**
  * Webpack configuration for production builds
@@ -33,11 +32,6 @@ module.exports = (env, argv) => {
         },
         optimization: {
             minimizer: [
-                new UglifyJsPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: true // set to true if you want JS source maps
-                }),
                 new OptimizeCSSAssetsPlugin({})
             ]
         },
