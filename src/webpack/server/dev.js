@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
         mode: "development",
         plugins: [
             new webpack.EnvironmentPlugin({
-                SCSA_ENDPOINT_SETTINGS: 'development'
+                SCSA_ENDPOINT_SETTINGS: "local"
             }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.NoEmitOnErrorsPlugin()

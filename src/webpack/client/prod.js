@@ -42,7 +42,7 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new webpack.EnvironmentPlugin({
-                SCSA_ENDPOINT_SETTINGS: 'development'
+                SCSA_ENDPOINT_SETTINGS: "local"
             }),
             new MiniCssExtractPlugin({
                 chunkFilename: "[id].css",
