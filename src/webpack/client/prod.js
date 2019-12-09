@@ -2,13 +2,14 @@ const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
 /**
  * Webpack configuration for production builds
  * of client bundles
  *
- * @param {object} [env] Node env parameter
- * @param {object} [argv] Commandline parameter
+ * @param {ProcessEnv} [env] Node env parameter
+ * @param {Process.argv} [argv] Commandline parameter
  * @returns webpack.Configuration
  */
 module.exports = (env, argv) => {
@@ -25,15 +26,18 @@ module.exports = (env, argv) => {
                     loader: "ts-loader"
                 },
                 {
+                    test: /\.pug?$/,
+                    use: "pug-loader"
+                },
+                {
                     test: /\.css$/,
                     use: [MiniCssExtractPlugin.loader, "css-loader"]
                 }
             ]
         },
         optimization: {
-            minimizer: [
-                new OptimizeCSSAssetsPlugin({})
-            ]
+            minimize: true,
+            minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin({})]
         },
         output: {
             filename: "[name].js",

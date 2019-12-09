@@ -20,8 +20,8 @@ const hotMiddlewareScript = script => {
  * of client bundles
  *
  * @extends ./prodConfig
- * @param {object} [env] Node env parameter
- * @param {object} [argv] Commandline parameter
+ * @param {ProcessEnv} [env] Node env parameter
+ * @param {Process.argv} [argv] Commandline parameter
  * @returns webpack.Configuration
  */
 module.exports = (env, argv) => {
@@ -37,6 +37,10 @@ module.exports = (env, argv) => {
                     test: /\.ts?$/,
                     options: { allowTsInNodeModules: true },
                     loader: "ts-loader"
+                },
+                {
+                    test: /\.pug?$/,
+                    use: "pug-loader"
                 },
                 {
                     test: /\.css$/,
