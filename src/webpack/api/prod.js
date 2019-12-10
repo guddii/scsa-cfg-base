@@ -1,36 +1,25 @@
 const webpack = require("webpack");
-const prodConfig = require("./prod");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
 /**
- * Hot middleware script
+ * Webpack configuration for production builds
+ * of api bundles
  *
- * @param script Base path
- * @returns string
- */
-const hotMiddlewareScript = script => {
-    script = script || "webpack-hot-middleware/client";
-    script += "?path=/__webpack_hmr";
-    script += "&timeout=20000";
-    script += "&reload=true";
-    return script;
-};
-
-/**
- * Webpack configuration for the development
- * of client bundles
- *
- * @extends ./prodConfig
  * @param {ProcessEnv} [env] Node env parameter
  * @param {Process.argv} [argv] Commandline parameter
  * @returns webpack.Configuration
  */
 module.exports = (env, argv) => {
-    const config = {
-        devtool: "inline-source-map",
+    return {
         entry: {
-            client: [hotMiddlewareScript(), "./src/client/index"]
+            compoxure: ["./src/api/fragments/compoxure"],
+            iframe: ["./src/api/fragments/iframe"],
+            webcomponent: ["./src/api/fragments/webcomponent"]
         },
-        mode: "development",
+        mode: "production",
         module: {
             rules: [
                 {
@@ -44,7 +33,7 @@ module.exports = (env, argv) => {
                 },
                 {
                     test: /\.css$/,
-                    use: ["style-loader", "css-loader"]
+                    use: [MiniCssExtractPlugin.loader, "css-loader"]
                 },
                 {
                     test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -61,13 +50,27 @@ module.exports = (env, argv) => {
                 }
             ]
         },
+        optimization: {
+            minimize: true,
+            minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin({})]
+        },
+        output: {
+            filename: "[name].js",
+            path: path.join(process.cwd(), "dist", "api", "fragments"),
+            publicPath: "/"
+        },
         plugins: [
             new webpack.EnvironmentPlugin({
                 SCSA_ENDPOINT_SETTINGS: "local"
             }),
-            new webpack.HotModuleReplacementPlugin(),
-            new webpack.NoEmitOnErrorsPlugin()
-        ]
+            new MiniCssExtractPlugin({
+                chunkFilename: "[id].css",
+                filename: "[name].css"
+            })
+        ],
+        resolve: {
+            extensions: [".ts", ".js"]
+        },
+        target: "web"
     };
-    return { ...prodConfig(), ...config };
 };
