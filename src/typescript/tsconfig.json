@@ -4,6 +4,7 @@
     "target": "esnext",
     "module": "commonjs",
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "paths": {
       "@scsa/*": [
         "node_modules/@scsa/*"
