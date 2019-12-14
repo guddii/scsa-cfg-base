@@ -6,7 +6,7 @@
   "author": "Florian Gudat <florian.gudat@guices.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com:guddii/scsa-cfg-build.git"
+    "url": "git+https://github.com/guddii/scsa-cfg-build.git"
   },
   "version": "1.0.0",
   "main": "./index.ts",
