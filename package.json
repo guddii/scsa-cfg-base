@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/guddii/scsa-cfg-build.git"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./index.ts",
   "dependencies": {
     "file-loader": "^5.0.2",
@@ -47,5 +47,8 @@
   "os": [
     "darwin",
     "linux"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
