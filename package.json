@@ -8,7 +8,10 @@
     "type": "git",
     "url": "git+https://github.com/guddii/scsa-cfg-build.git"
   },
-  "version": "1.0.1",
+  "scripts": {
+    "test": "echo \"Warning: no test specified\""
+  },
+  "version": "1.0.0",
   "main": "./index.ts",
   "dependencies": {
     "file-loader": "^5.0.2",
