@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@scsa/build",
+  "name": "@guddii/build",
   "description": "Build Configuration",
   "license": "MIT",
   "author": "Florian Gudat <florian.gudat@guices.com>",
