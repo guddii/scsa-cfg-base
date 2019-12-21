@@ -2,20 +2,6 @@ const webpack = require("webpack");
 const prodConfig = require("./prod");
 
 /**
- * Hot middleware script
- *
- * @param script Base path
- * @returns string
- */
-const hotMiddlewareScript = script => {
-    script = script || "webpack-hot-middleware/client";
-    script += "?path=/__webpack_hmr";
-    script += "&timeout=20000";
-    script += "&reload=true";
-    return script;
-};
-
-/**
  * Webpack configuration for the development
  * of client bundles
  *
@@ -27,47 +13,8 @@ const hotMiddlewareScript = script => {
 module.exports = (env, argv) => {
     const config = {
         devtool: "inline-source-map",
-        entry: {
-            client: [hotMiddlewareScript(), "./src/client/index"]
-        },
-        mode: "development",
-        module: {
-            rules: [
-                {
-                    test: /\.ts?$/,
-                    options: { allowTsInNodeModules: true },
-                    loader: "ts-loader"
-                },
-                {
-                    test: /\.pug?$/,
-                    use: "pug-loader"
-                },
-                {
-                    test: /\.css$/,
-                    use: ["style-loader", "css-loader"]
-                },
-                {
-                    test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                    use: [
-                        {
-                            loader: "file-loader",
-                            options: {
-                                name: "[name].[ext]",
-                                publicPath: 'fonts/',
-                                outputPath: "fonts/"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        plugins: [
-            new webpack.EnvironmentPlugin({
-                SCSA_ENDPOINT_SETTINGS: "local"
-            }),
-            new webpack.HotModuleReplacementPlugin(),
-            new webpack.NoEmitOnErrorsPlugin()
-        ]
+        mode: "production",
+        watch: true
     };
     return { ...prodConfig(), ...config };
 };

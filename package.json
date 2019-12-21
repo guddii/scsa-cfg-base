@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@guddii/build",
+  "name": "@scsa/build",
   "description": "Build Configuration",
   "license": "MIT",
   "author": "Florian Gudat <florian.gudat@guices.com>",
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "echo \"Warning: no test specified\""
   },
-  "version": "1.0.4",
+  "version": "1.0.0",
   "main": "./index.ts",
   "dependencies": {
     "file-loader": "^5.0.2",

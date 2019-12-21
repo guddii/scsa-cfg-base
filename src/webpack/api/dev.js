@@ -13,7 +13,8 @@ const prodConfig = require("./prod");
 module.exports = (env, argv) => {
     const config = {
         devtool: "inline-source-map",
-        mode: "development"
+        mode: "production",
+        watch: true
     };
     return { ...prodConfig(), ...config };
 };

@@ -15,7 +15,8 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = (env, argv) => {
     return {
         entry: {
-            client: "./src/client/index"
+            MessagingBridge: "./src/client/entry/MessagingBridge",
+            MessageBus: "./src/client/entry/MessageBus"
         },
         mode: "production",
         module: {
