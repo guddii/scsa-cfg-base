@@ -16,7 +16,8 @@ module.exports = (env, argv) => {
     return {
         entry: {
             MessagingBridge: "./src/client/entry/MessagingBridge",
-            MessageBus: "./src/client/entry/MessageBus"
+            MessageBus: "./src/client/entry/MessageBus",
+            MessageBroker: "./src/client/entry/MessageBroker"
         },
         mode: "production",
         module: {
