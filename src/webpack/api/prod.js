@@ -16,7 +16,6 @@ module.exports = (env, argv) => {
     return {
         entry: {
             nodesi: ["./src/api/fragments/nodesi"],
-            compoxure: ["./src/api/fragments/compoxure"],
             iframe: ["./src/api/fragments/iframe"],
             webcomponent: ["./src/api/fragments/webcomponent"]
         },
